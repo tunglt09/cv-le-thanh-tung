@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Lê Thanh Tùng</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;500;600;700&display=swap');
+
+        @page {
+            size: A4 portrait;
+            margin: 12mm 14mm 12mm 14mm;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+            background: #ffffff;
+            color: #2d3748;
+            margin: 0 auto;
+            padding: 20px;
+            max-width: 800px;
+            font-size: 9.1pt;
+            line-height: 1.4;
+        }
+
+        @media screen {
+            body {
+                background-color: #f1f5f9;
+                padding: 30px 15px;
+            }
+            .cv-wrapper {
+                background: #ffffff;
+                padding: 40px;
+                border-radius: 8px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            }
+            .no-print-bar {
+                max-width: 800px;
+                margin: 0 auto 15px auto;
+                display: flex;
+                justify-content: flex-end;
+                gap: 10px;
+            }
+            .btn-action {
+                background-color: #2980b9;
+                color: #fff;
+                border: none;
+                padding: 8px 16px;
+                border-radius: 6px;
+                font-weight: 600;
+                font-size: 0.9em;
+                text-decoration: none;
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                cursor: pointer;
+            }
+            .btn-action:hover {
+                background-color: #1f6391;
+            }
+            .btn-secondary {
+                background-color: #e2e8f0;
+                color: #334155;
+            }
+            .btn-secondary:hover {
+                background-color: #cbd5e1;
+            }
+        }
+
+        @media print {
+            body {
+                background: #ffffff !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                max-width: 100% !important;
+            }
+            .cv-wrapper {
+                padding: 0 !important;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+            }
+            .no-print-bar {
+                display: none !important;
+            }
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            padding-bottom: 14px;
+            border-bottom: 2.5px solid #2980b9;
+            margin-bottom: 14px;
+        }
+
+        .profile-pic {
+            width: 82px;
+            height: 82px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #2980b9;
+            padding: 2px;
+            flex-shrink: 0;
+        }
+
+        .header-text {
+            flex: 1;
+        }
+
+        h1 {
+            font-size: 20pt;
+            font-weight: 700;
+            color: #1a365d;
+            margin: 0 0 2px 0;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .job-title-main {
+            font-size: 10.5pt;
+            font-weight: 700;
+            color: #2980b9;
+            letter-spacing: 1.2px;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px 18px;
+            font-size: 8.8pt;
+            color: #4a5568;
+        }
+
+        .contact-info span {
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .contact-info i {
+            color: #2980b9;
+            margin-right: 6px;
+            font-size: 9pt;
+        }
+
+        /* Section Headings */
+        h2 {
+            font-size: 10.5pt;
+            font-weight: 700;
+            color: #1a365d;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            border-bottom: 1.5px solid #2980b9;
+            padding-bottom: 3px;
+            margin: 0 0 8px 0;
+        }
+
+        .top-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 18px;
+            margin-bottom: 14px;
+        }
+
+        .summary-p {
+            margin: 0;
+            font-size: 8.8pt;
+            line-height: 1.4;
+            color: #334155;
+            text-align: justify;
+        }
+
+        .competencies-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 5px;
+        }
+
+        .competency-item {
+            position: relative;
+            padding-left: 20px;
+            font-size: 8.8pt;
+            font-weight: 600;
+            color: #334155;
+            line-height: 1.3;
+        }
+
+        .competency-item i {
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: #27ae60;
+            font-size: 9pt;
+        }
+
+        .edu-entry {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-top: 6px;
+            font-size: 8.8pt;
+        }
+
+        .edu-school {
+            font-weight: 700;
+            color: #2980b9;
+        }
+
+        .edu-date {
+            color: #64748b;
+            font-style: italic;
+        }
+
+        /* Work Experience */
+        .experience-section {
+            margin-top: 10px;
+        }
+
+        .job-entry {
+            margin-bottom: 11px;
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 3px;
+            padding-bottom: 2px;
+            border-bottom: 1px dashed #e2e8f0;
+        }
+
+        .company-name {
+            font-weight: 700;
+            font-size: 9.3pt;
+            color: #0f172a;
+        }
+
+        .job-role {
+            font-weight: 600;
+            font-size: 9.1pt;
+            color: #2563eb;
+        }
+
+        .job-date {
+            font-size: 8.5pt;
+            color: #64748b;
+            font-style: italic;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        ul {
+            margin: 3px 0 3px 0;
+            padding-left: 17px;
+        }
+
+        li {
+            font-size: 8.6pt;
+            line-height: 1.37;
+            margin-bottom: 2.5px;
+            color: #334155;
+        }
+
+        .achievements-label {
+            font-size: 8.6pt;
+            font-weight: 700;
+            color: #1e293b;
+            margin-top: 4px;
+            margin-bottom: 2px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="no-print-bar">
+    <a href="index.html" class="btn-action btn-secondary"><i class="fa-solid fa-arrow-left"></i> Giao diện Web</a>
+    <a href="cv-en.html" class="btn-action btn-secondary"><i class="fa-solid fa-language"></i> English</a>
+    <button onclick="window.print()" class="btn-action"><i class="fa-solid fa-print"></i> In / Lưu PDF</button>
+</div>
+
+<div class="cv-wrapper">
+    <header>
+        <img src="profile.jpg" alt="Lê Thanh Tùng Profile" class="profile-pic">
+        <div class="header-text">
+            <h1>Lê Thanh Tùng</h1>
+            <div class="job-title-main">Quản Trị Marketing & AI Agents</div>
+            <div class="contact-info">
+                <span><i class="fa-solid fa-calendar-days"></i> 12/09/1990</span>
+                <span><i class="fa-solid fa-phone"></i> 098 647 6605</span>
+                <span><i class="fa-solid fa-envelope"></i> tunglt09@gmail.com</span>
+                <span><i class="fa-solid fa-location-dot"></i> K35 Tân Mai, Hoàng Mai, Hà Nội</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="top-grid">
+        <div>
+            <h2>Tóm Tắt Khái Quát</h2>
+            <p class="summary-p">Head of Marketing với hơn 10 năm tăng trưởng doanh thu qua các kênh Performance, SEO và Social Media: dẫn dắt đội ngũ tới 50 người, tăng 150% doanh thu tổng thể, đưa traffic website từ 5.000 lên 3.000.000 lượt/tháng. Từ 2025, kết hợp tư duy chiến lược marketing với năng lực triển khai AI Agents & Automation, giúp doanh nghiệp giảm 40-50% chi phí vận hành trong khi tăng năng lực xử lý lead và sản lượng nội dung.</p>
+        </div>
+        <div>
+            <h2>Năng Lực Cốt Lõi & Học Vấn</h2>
+            <div class="competencies-list">
+                <div class="competency-item"><i class="fa-solid fa-circle-check"></i> Digital Marketing Strategy</div>
+                <div class="competency-item"><i class="fa-solid fa-circle-check"></i> AI-Driven Marketing Automation</div>
+                <div class="competency-item"><i class="fa-solid fa-circle-check"></i> SEO & Organic Growth</div>
+                <div class="competency-item"><i class="fa-solid fa-circle-check"></i> Data Analysis & ROI Optimization</div>
+                <div class="competency-item"><i class="fa-solid fa-circle-check"></i> Team Leadership & Development</div>
+            </div>
+            <div class="edu-entry">
+                <span class="edu-school">FPT APTECH</span>
+                <span class="edu-date">2008 - 2011</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="experience-section">
+        <h2>Kinh Nghiệm Làm Việc</h2>
+
+        <div class="job-entry">
+            <div class="job-header">
+                <div><span class="company-name">MARKETING &amp; AI GROWTH CONSULTING</span> | <span class="job-role">Tư Vấn Chiến Lược Marketing & Triển Khai AI Automation</span></div>
+                <span class="job-date">2025 - Hiện tại</span>
+            </div>
+            <ul>
+                <li>Tư vấn chiến lược tăng trưởng cho doanh nghiệp vừa và nhỏ, tập đoàn thuộc nhiều lĩnh vực (du lịch, công nghệ, hóa chất, giáo dục, bất động sản, bán lẻ, sản xuất): thiết kế lại phễu marketing - sales và đưa AI vào đúng những điểm mang lại ROI cao nhất.</li>
+                <li>Khảo sát vận hành marketing và sales để xác định điểm nghẽn (xử lý lead, sản xuất nội dung, báo cáo), xây dựng lộ trình chuyển đổi AI gắn với mục tiêu doanh thu và ngân sách của từng doanh nghiệp.</li>
+                <li>Triển khai AI Agent trên toàn phễu: tự động sản xuất nội dung cho SEO, Social và Ads; tự động phân loại lead; chatbot tư vấn đa kênh (Website, Facebook, Zalo, WhatsApp) nuôi dưỡng lead 24/7; dashboard marketing và báo cáo quản trị tự động.</li>
+                <li>Xây dựng các luồng automation trên n8n, Make, Zapier; tích hợp các mô hình ngôn ngữ lớn (Claude, ChatGPT, Gemini) với CRM, Google Workspace và dữ liệu nội bộ; phát triển hệ thống tri thức RAG cho đội Sales và Chăm sóc khách hàng.</li>
+                <li>Đào tạo đội ngũ marketing và sales nội bộ để tự vận hành, mở rộng các workflow AI sau khi bàn giao.</li>
+            </ul>
+            <div class="achievements-label">Thành Tích Điển Hình:</div>
+            <ul>
+                <li>Đã triển khai hệ thống AI Automation cho marketing và sales tại hàng chục doanh nghiệp, tập đoàn ở nhiều lĩnh vực.</li>
+                <li>Giảm 60-80% thời gian xử lý thủ công cho các quy trình lặp lại như tổng hợp báo cáo, nhập liệu và phản hồi lead/khách hàng.</li>
+                <li>Tiết kiệm 40-50% chi phí sản xuất nội dung và chăm sóc khách hàng, đồng thời tăng sản lượng nội dung và tốc độ phản hồi lead.</li>
+            </ul>
+        </div>
+
+        <div class="job-entry">
+            <div class="job-header">
+                <div><span class="company-name">MBS PILATES - QUOCAN GROUP</span> | <span class="job-role">Giám Đốc Marketing</span></div>
+                <span class="job-date">2023 - 2026</span>
+            </div>
+            <ul>
+                <li>Quản lý và phát triển đội ngũ marketing từ 30-50 thành viên, phụ trách các bộ phận Performance, SEO, Media và Trade Marketing.</li>
+                <li>Xây dựng và mở rộng các nguồn doanh thu mới từ quảng cáo trả phí (Facebook, TikTok), mạng xã hội và SEO.</li>
+                <li>Tối ưu hóa chi phí vận hành và nhân sự, đảm bảo tỷ suất hoàn vốn (ROI) cao nhất.</li>
+            </ul>
+            <div class="achievements-label">Thành Tích Điển Hình:</div>
+            <ul>
+                <li>Đạt mức tăng trưởng doanh thu tổng thể 150%.</li>
+                <li>Giảm 30% chi phí marketing và nhân sự thông qua việc tái cấu trúc đội ngũ và hiệu suất.</li>
+            </ul>
+        </div>
+
+        <div class="job-entry">
+            <div class="job-header">
+                <div><span class="company-name">HOCMAI GALAXY EDUCATION</span> | <span class="job-role">Organic Marketing Manager</span></div>
+                <span class="job-date">2022 - 2023</span>
+            </div>
+            <ul>
+                <li>Dẫn dắt khối Organic Marketing, chịu trách nhiệm toàn bộ tăng trưởng traffic và doanh thu từ các kênh không trả phí: SEO, Content và Social Media.</li>
+                <li>Xây dựng và triển khai chiến lược SEO cho toàn bộ hệ thống website: SEO kỹ thuật, nghiên cứu từ khóa, tối ưu on-page, internal link và cấu trúc site.</li>
+                <li>Quản lý đội ngũ content, phát triển hệ thống chủ đề (topic cluster) và lộ trình nội dung bám sát hành trình học tập của học sinh và phụ huynh.</li>
+                <li>Vận hành hệ sinh thái các nền tảng social (Facebook Fanpage & Group, TikTok, YouTube, Zalo OA), xây dựng chiến lược nội dung riêng phù hợp với định dạng và tệp người dùng của từng nền tảng.</li>
+                <li>Phát triển cộng đồng phụ huynh và học sinh trên Facebook Group, biến đây thành kênh nuôi dưỡng và chuyển đổi khách hàng tự nhiên.</li>
+                <li>Đo lường hiệu quả bằng GA4, Google Search Console và Ahrefs; báo cáo traffic, thứ hạng và tỷ lệ chuyển đổi theo từng kênh để điều phối nguồn lực.</li>
+            </ul>
+            <div class="achievements-label">Thành Tích Điển Hình:</div>
+            <ul>
+                <li>Duy trì hiệu suất SEO cho các website hiện có và phát triển thêm hệ thống blog vệ tinh, tăng trưởng đáng kể lượng traffic tự nhiên.</li>
+                <li>Tăng trưởng hệ sinh thái các nền tảng social, mở rộng độ phủ và tương tác, đưa social trở thành nguồn lead organic ổn định.</li>
+                <li>Giảm sự phụ thuộc vào quảng cáo trả phí nhờ nâng tỷ trọng đóng góp lead từ các kênh organic.</li>
+            </ul>
+        </div>
+
+        <div class="job-entry">
+            <div class="job-header">
+                <div><span class="company-name">TOPICA NATIVE</span> | <span class="job-role">Marketing Manager</span></div>
+                <span class="job-date">2020 - 2021</span>
+            </div>
+            <ul>
+                <li>Quản lý kế hoạch marketing tổng thể cho sản phẩm học tiếng Anh, chịu trách nhiệm chỉ tiêu về lead, chi phí trên mỗi lead (CPL) và tỷ trọng doanh thu theo kênh.</li>
+                <li>Điều phối media mix đa kênh: Facebook Ads, Google Ads, GDN, Cốc Cốc; phân bổ ngân sách theo hiệu suất và tối ưu CPL cho từng nhóm khách hàng.</li>
+                <li>Xây dựng và dẫn dắt đội ngũ SEO và Content, phát triển chiến lược tìm kiếm tự nhiên để thúc đẩy tăng trưởng doanh thu bền vững.</li>
+                <li>Phối hợp giữa Marketing và Sales, chuẩn hóa quy trình bàn giao lead và chấm điểm lead nhằm tăng tỷ lệ chuyển đổi từ lead thành học viên.</li>
+                <li>Triển khai các chiến dịch truyền thông, chương trình khuyến mãi và ra mắt sản phẩm, làm việc cùng bộ phận Sản phẩm và Học thuật về định vị và thông điệp.</li>
+                <li>Quản lý hệ thống landing page và tối ưu chuyển đổi (CRO), chạy A/B test về thông điệp, form đăng ký và bố cục để tăng tỷ lệ điền form.</li>
+                <li>Xây dựng hệ thống báo cáo hiệu quả marketing, theo dõi toàn bộ phễu từ traffic đến doanh thu phục vụ ra quyết định chiến lược hàng tuần.</li>
+            </ul>
+            <div class="achievements-label">Thành Tích Điển Hình:</div>
+            <ul>
+                <li>Đưa doanh thu từ SEO chiếm 50% tỷ trọng tổng doanh thu toàn kênh.</li>
+                <li>Giảm đáng kể chi phí trên mỗi lead nhờ tái cấu trúc cơ cấu kênh và dịch chuyển ngân sách sang organic.</li>
+                <li>Xây dựng đội ngũ marketing và chuẩn hóa quy trình lập kế hoạch, triển khai chiến dịch từ đầu đến cuối.</li>
+            </ul>
+        </div>
+
+        <div class="job-entry">
+            <div class="job-header">
+                <div><span class="company-name">VNTRIP OTA</span> | <span class="job-role">SEO Manager</span></div>
+                <span class="job-date">04/2017 - 11/2018</span>
+            </div>
+            <ul>
+                <li>Xây dựng và quản lý đội ngũ marketing hơn 20 thành viên, lập kế hoạch tăng trưởng và tối ưu hóa ROI.</li>
+                <li>Quản lý hiệu suất của các kênh Quảng cáo Digital (Facebook, Google, Cốc Cốc...)</li>
+            </ul>
+            <div class="achievements-label">Thành Tích Điển Hình:</div>
+            <ul>
+                <li>Định vị Vntrip trở thành một trong các thương hiệu OTA hàng đầu tại Việt Nam.</li>
+                <li>Tăng lưu lượng truy cập website từ 5.000 lên tới 3.000.000 lượt/tháng trong vòng 12 tháng.</li>
+            </ul>
+        </div>
+
+        <div class="job-entry">
+            <div class="job-header">
+                <div><span class="company-name">INBOUND MARKETING AGENCY</span> | <span class="job-role">Người Sáng Lập / Cố Vấn Marketing</span></div>
+                <span class="job-date">2011 - Hiện tại</span>
+            </div>
+            <ul>
+                <li>Thành lập và quản lý agency, cung cấp các dịch vụ tư vấn, lập chiến lược và thực thi marketing cho các nhãn hàng ở đa dạng lĩnh vực.</li>
+                <li>Làm cố vấn và đào tạo trực tiếp về Marketing cho các doanh nghiệp như Zestech, Davosa, Ecomirai, simphongthuy.vn, Next-tech Group...</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
