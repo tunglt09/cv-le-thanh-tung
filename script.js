@@ -58,14 +58,14 @@ const translations = {
         job3_desc2: "Responsible for the performance of Digital Advertising channels (Facebook, Google, Coc Coc).",
         job3_ach2: "Positioned Vntrip.vn as a leading OTA (Online Travel Agency) brand in Vietnam.",
         job3_ach3: "Grew website traffic from 5,000 to 3,000,000 visits/month within 12 months.",
-        download_pdf: "Download PDF",
+        download_pdf: "Print / Save PDF",
         job4_title: "Founder/Lead Consultant",
         job4_date: "2011 - Present",
         job4_desc1: "Founded and managed an agency, providing consulting, planning, and execution of marketing campaigns for clients across various industries.",
         job4_desc2: "Directly provided Marketing training for businesses such as Zestech, Davosa, Ecomirai, simphongthuy.vn, Next-tech Group, etc.",
     },
     vi: {
-        download_pdf: "Tải bản PDF",
+        download_pdf: "In / Lưu PDF",
         name: "Lê Thanh Tùng",
         job_title: "QUẢN TRỊ MARKETING & AI AGENTS",
         address: "K35 Tân Mai, Hoàng Mai, Hà Nội",
@@ -140,11 +140,6 @@ function setLanguage(lang) {
 
     document.getElementById('btn-en').classList.toggle('active', lang === 'en');
     document.getElementById('btn-vi').classList.toggle('active', lang === 'vi');
-
-    const btnPdf = document.getElementById('btn-pdf');
-    if (btnPdf) {
-        btnPdf.href = lang === 'vi' ? 'CV_LeThanhTung_VI.pdf' : 'CV_LeThanhTung_EN.pdf';
-    }
     
     // Smooth transition effect
     document.querySelector('.container').style.opacity = 0;
